@@ -15,7 +15,7 @@ app.use(cors(corsOptions));
 
 // Define your products data (you can replace this with your actual data or a database query)
 const products = [
-  { id: 1, name: 'Custom Neon', price: '$10', image: 'https://imgur.com/undefinedhttps://imgur.com/mTkAJW5'},
+  { id: 1, name: 'Product 1', price: '$10', image: 'https://via.placeholder.com/200' },
   { id: 2, name: 'Product 2', price: '$20', image: 'https://via.placeholder.com/200' },
   // Add more products as needed
 ];
