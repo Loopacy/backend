@@ -5,12 +5,17 @@ const cors = require('cors');
 // Initialize the Express app
 const app = express();
 
-// Use CORS middleware to allow all domains to access the API
-app.use(cors());
+// Configure CORS to allow requests only from your GitHub Pages domain
+const corsOptions = {
+  origin: 'https://loopacy.github.io/frontend', // Your GitHub Pages URL
+};
 
-// Define your routes
+// Use CORS middleware with the configured options
+app.use(cors(corsOptions));
+
+// Define your products data (you can replace this with your actual data or a database query)
 const products = [
-  { id: 1, name: 'Product 1', price: '$10', image: 'https://via.placeholder.com/200' },
+  { id: 1, name: 'Custom Neon', price: '$10', image: 'https://imgur.com/undefinedhttps://imgur.com/mTkAJW5'},
   { id: 2, name: 'Product 2', price: '$20', image: 'https://via.placeholder.com/200' },
   // Add more products as needed
 ];
@@ -21,7 +26,10 @@ app.get('/products', (req, res) => {
   res.json(products);  // Respond with the products array in JSON format
 });
 
-// Start the server and listen on port 3000
-app.listen(3001, () => {
-  console.log('Server is running on http://localhost:3001');
+// Use the dynamic port assigned by Render (or 3001 locally for development)
+const port = process.env.PORT || 3001;
+
+// Start the server and listen on the assigned port
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
